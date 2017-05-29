@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  customer:
+    build: ./customer
+    ports:
+      - "5000"
+  product:
+      build: ./product
+      ports:
+        - "5000"
+  order:
+      build: ./order
+      ports:
+        - "5000:5000"
+      depends_on:
+        - customer
+        - product
